@@ -2,6 +2,7 @@ const ErrorHandler = require("../utils/errorhandeler");
 const catchAsyncErrors=require("../middleware/catchAsyncErrors");
 const User=require("../models/userModel");
 
+
 //Register a User
 exports.registerUser=catchAsyncErrors(async(req,res,next)=>{
     console.log('registerUser')
@@ -15,8 +16,11 @@ const user= await User.create({
         url:"profilePicUrl",
     },
 });
+
+const token=user.getJWTToken();
+
 res.status(201).json({
     success:true,
-   user,
+   token,
 });
 });
