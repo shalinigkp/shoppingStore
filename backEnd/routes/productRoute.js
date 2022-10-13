@@ -1,6 +1,7 @@
 const express=require("express");
 
 const { getAllProducts,createProduct, updateProduct, deleteProduct, getProductDetails } = require("../controllers/productController");
+//const { isAuthenticatedUser } = require("../middleware/auth");
 const recordRoutes=express.Router();
 
 recordRoutes.route("/products").get(getAllProducts)
