@@ -9,9 +9,11 @@ app.use(cookieParser());
 
 const user=require("./routes/userRoutes");
 const product=require("./routes/productRoute");
+const order=require("./routes/orderRoute");
 
 app.use("/api1",product);
 app.use("/api1",user);
+app.use("/api1",order);
 
 // Middleware for error
 app.use(errorMiddleware);
